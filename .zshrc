@@ -110,6 +110,7 @@ alias ..='cd ..'
 alias cp='cp -i'
 alias mv='mv -i'
 alias mkdir='mkdir -pv'
+alias zconf='nvim ~/.zshrc'
 
 # enie
 alias enie='printf ñ | xclip -selection clipboard -i && echo "enie copiada al portapapeles"'
@@ -127,7 +128,6 @@ book() {
 
 alias nv='nvim'
 alias nivm='nvim'
-alias vim='nvim'
 
 alias ns='nsxiv'
 alias nst='nsxiv --thumbnail'
@@ -137,6 +137,8 @@ alias cat='bat'
 alias hss='hugo server --noHTTPCache'
 
 alias py='python3'
+
+alias penguinconf='cd ~/.local/share/penguin'
 
 #alias mates='cd ~/Media/PDFs/Matematicas/guia-mate'
 

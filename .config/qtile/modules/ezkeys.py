@@ -1,7 +1,7 @@
 from libqtile.config import EzKey as Key
 from libqtile.lazy import lazy
 
-from modules.prefs import terminal, browser, file_manager, screenshot, screenshot_manual, rofi, lockscreen, redshift_on, redshift_off, volume_up, volume_down, volume_mute, light_up, light_down
+from modules.prefs import *
 
 
 keys = [
