@@ -59,5 +59,12 @@
             "",
             "- "
         ]
+    },
+    "TODO item": {
+        "prefix": "itodo",
+        "body": [
+            "($2) ${CURRENT_YEAR}-${CURRENT_MONTH}-${CURRENT_DATE} $1"
+        ],
+        "description": "Crea una nueva linea al TODO"
     }
 }

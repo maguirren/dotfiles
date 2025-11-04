@@ -30,6 +30,9 @@ return{
                     opts = {
                         friendly_snippets = true,
                         search_path = { "~/.config/nvim/snippets" },
+                        extended_filetypes = {
+                            text = { "markdown" },
+                        },
                     },
                 },
             },

@@ -10,7 +10,7 @@ else
 fi
 
 
-picom &
+#picom &
 udiskie -t &
 xwallpaper --zoom ~/Media/IMGs/mywall.jpg 
 xss-lock -- betterlockscreen -l &
