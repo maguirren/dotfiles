@@ -1,0 +1,63 @@
+{
+    "zettel note": {
+        "prefix": "zn",
+        "body": [
+            "---",
+            "title: $1",
+            "created_at: $CURRENT_YEAR-$CURRENT_MONTH-$CURRENT_DATE",
+            "tags: $2",
+            "---",
+            "[Índice](../indice.md)",
+            "",
+            "# $1",
+            "",
+            "$0",
+            "",
+            "<!--more-->",
+            "## $1",
+            "",
+            "---",
+            "Mas información,",
+            ""
+        ]
+    },
+    "zettel indice": {
+        "prefix": "zi",
+        "body": [
+            "* [[indice|indice]]",
+            "tags: $1",
+            "---",
+            "# Indice",
+            "",
+            "* [] $CURRENT_YEAR-$CURRENT_MONTH-$CURRENT_DATE | $2",
+            "---",
+            "Mas información,",
+            ""
+        ]
+    },
+    "nota": {
+        "prefix": "nota",
+        "body": [
+            "---",
+            "title: $1",
+            "created: ${CURRENT_YEAR}-${CURRENT_MONTH}-${CURRENT_DATE}T${CURRENT_HOUR}:${CURRENT_MINUTE}:${CURRENT_SECOND}",
+            "updated: ${CURRENT_YEAR}-${CURRENT_MONTH}-${CURRENT_DATE}T${CURRENT_HOUR}:${CURRENT_MINUTE}:${CURRENT_SECOND}",
+            "tags:",
+            "  - ",
+            "---",
+            "# $1",
+            "",
+            "$0",
+            "",
+            "<!--more-->",
+            "## $1",
+            "",
+            "",
+            "",
+            "---",
+            "Más información,",
+            "",
+            "- "
+        ]
+    }
+}

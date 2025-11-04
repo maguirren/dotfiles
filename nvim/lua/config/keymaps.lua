@@ -3,13 +3,19 @@ local keymap = function(mode, shortcut, command, description)
 end
 
 -- save and quit file
-keymap('n', '<leader>w', ':w<CR>', 'save file')
+keymap('n', '<leader>s', ':w<CR>', 'save file')
 keymap('n', '<leader>x', ':wq<CR>', 'save and quit')
 
 keymap({'n', 'v'}, '<leader>y', '"+y', 'copia al portapapeles del sistema')
 
 -- ESC pressing jk
-keymap('i', 'jk', '<ESC>', 'jk to esc')
+keymap('i', 'qq', '<ESC>', 'jk to esc')
+
+-- move in insert mode
+keymap('i', '<c-h>', '<left>', 'left')
+keymap('i', '<c-j>', '<down>', 'down')
+keymap('i', '<c-k>', '<up>', 'up')
+keymap('i', '<c-l>', '<right>', 'right')
 
 -- don't use arrow keys
 keymap('', '<up>', '<nop>', 'dont use')

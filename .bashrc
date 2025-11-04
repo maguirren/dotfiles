@@ -4,6 +4,19 @@
 # No continúes si no es una shell interactiva
 [[ $- != *i* ]] && return
 
+
+#FZF
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
+
+export FZF_DEFAULT_OPTS="
+    --height 40%
+    --reverse
+    --border
+    --info=inline
+    --preview 'batcat --style=plain --color=always --line-range :100 {} 2>/dev/null || head -n 100 {}'
+    --preview-window=right:60%
+"
+
 #BASICS
 shopt -s histappend
 shopt -s cmdhist
@@ -83,3 +96,4 @@ elif [ -f /usr/share/bash-completion/bash_completion ]; then
     . /usr/share/bash-completion/bash_completion
 fi
 
+eval "$(fzf --bash)"
