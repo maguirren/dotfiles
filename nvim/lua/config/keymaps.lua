@@ -66,3 +66,52 @@ keymap("n", "<leader>gr", vim.lsp.buf.references, 'references')
 
 -- MiniMap
 keymap("n", "<leader>nm", "<cmd>Neominimap Toggle<cr>", "Toggle global minimap")
+
+
+-- Manejo de notas y links
+
+-- Crea el indice de mis notas
+vim.api.nvim_create_user_command("GenerateIndex", function()
+  vim.fn.system("python3 ~/scripts/generate_index.py")
+  vim.notify("✅ Índice actualizado desde Python")
+end, {})
+
+-- Obtiene el enlace markdown de la linea
+local function get_markdown_link()
+  local line = vim.api.nvim_get_current_line()
+  return line:match("%(([^)]+)%)") -- extrae texto dentro de ()
+end
+
+-- Abrir enlace en el mismo buffer
+function OpenMarkdownLink()
+  local path = get_markdown_link()
+  if path and vim.fn.filereadable(path) == 1 then
+    vim.cmd("edit " .. path)
+  else
+    vim.notify("No se encontró un enlace Markdown válido", vim.log.levels.WARN)
+  end
+end
+
+-- Abrir enlace en split vertical
+function OpenMarkdownLinkVSplit()
+  local path = get_markdown_link()
+  if path and vim.fn.filereadable(path) == 1 then
+    vim.cmd("vsplit " .. path)
+  else
+    vim.notify("No se encontró un enlace Markdown válido", vim.log.levels.WARN)
+  end
+end
+
+-- Abrir enlace en nueva pestaña
+function OpenMarkdownLinkTab()
+  local path = get_markdown_link()
+  if path and vim.fn.filereadable(path) == 1 then
+    vim.cmd("tabedit " .. path)
+  else
+    vim.notify("No se encontró un enlace Markdown válido", vim.log.levels.WARN)
+  end
+end
+
+keymap("n", "<CR>", OpenMarkdownLink, "Abrir enlace Markdown")
+keymap("n", "<leader>v", OpenMarkdownLinkVSplit, "Abrir enlace Markdown en vsplit")
+

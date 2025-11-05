@@ -1,0 +1,98 @@
+# Instalacion de Debian & Qtile
+
+[Packages]
+python3-venv
+python3-pip
+xorg
+xinit
+qtile
+alacritty
+git
+vim
+pavucontrol
+fastfetch
+lightdm
+rofi
+xwallpaper
+picom
+udiskie
+xrandr
+thunar
+redshift
+scrot
+pactl
+brightnessctl
+unzip
+tree
+nsxiv
+syncthing
+curl
+xclip
+zip
+htop
+iwd
+lxappearance
+mpv
+vlc
+transmission-gtk
+zathura
+zathura-cb
+bat
+nodejs
+npm
+
+
+[Pip]
+psutil
+pulsectl_asyncio
+pyyaml
+
+
+[Librewolf]
+sudo apt update && sudo apt install extrepo -y
+sudo extrepo enable librewolf
+sudo apt update && sudo apt install librewolf -y
+
+
+[Screen Tearing Intel]
+/etc/X11/xorg.conf.d/20-intel.conf
+Section "Device"
+    Identifier "Intel Graphics"
+    Driver "intel"
+    Option "TearFree" "true"
+EndSection
+
+
+[Fonts]
+HackNerdFont
+fonts-noto
+
+[betterlockscreen]
+Al no estar en los repositorios de debian debe ser instalado manualmente.
+wget https://github.com/betterlockscreen/betterlockscreen/archive/refs/heads/main.zip
+unzip main.zip
+
+cd betterlockscreen-main/
+chmod u+x betterlockscreen
+cp betterlockscreen /usr/local/bin/
+
+[[paquetes necesarios]]
+imagemagick bc i3lock i3lock-color
+libgif-dev autoconf automake pkg-config libxcb1-dev libxcb-dpms0-dev libxcb-image0-dev libxcb-util0-dev libxcb-xinerama0-dev libxcb-xkb-dev libxkbcommon-dev libxkbcommon-x11-dev libpam0g-dev libcairo2-dev libev-dev libx11-dev libx11-xcb-dev libxcb-composite0-dev libxcb-randr0-dev libxcb-xrm-dev libxcb-shape0-dev libxcb-xfixes0-dev libxcb-present-dev libxcb-glx0-dev libpixman-1-dev libjpeg-dev
+
+
+[Suspender al cerrar la tapa]
+sudo vim /etc/systemd/logind.conf
+
+HandleLidSwitch=suspend
+HandleLidSwitchExternalPower=suspend
+
+sudo systemctl restart systemd-logind
+
+
+[para mejorar el prompt de bash]
+debes obtener git-prompt.sh
+y hacer source /usr/share/git/git-prompt.sh
+o /etc/bash_completion.d/git-prompt si esta en esa ubicacion
+
+

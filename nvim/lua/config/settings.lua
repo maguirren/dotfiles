@@ -19,3 +19,12 @@ opt.expandtab = true          -- use spaces instead of tabs
 opt.shiftwidth = 4            -- shift 4 spaces when tab
 opt.tabstop = 4               -- 1 tab == 4 spaces
 opt.smartindent = true        -- autoindent new lines
+
+opt.isfname:append(":")
+opt.suffixesadd:append(".md")
+
+vim.api.nvim_create_user_command("GenerateIndex", function()
+  vim.fn.system("python3 ~/scripts/generate_index.py")
+  vim.notify("✅ Índice actualizado desde Python")
+end, {})
+
