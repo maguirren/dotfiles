@@ -68,21 +68,22 @@ def close_sep(fg):
 
 
 def count_pending_tasks():
-    return subprocess.getoutput(r"grep -c '^- \[ \]' ~/SB/ToDo.md")
-
+    cmd = r"grep -c '^[[:space:]]*(\([ABC]\))[[:space:]]' ~/life/todo.txt"
+    return subprocess.getoutput(cmd)
 
 def open_todo_in_terminal():
-    subprocess.run(["kitty", "--detach", "nvim", "/home/markoso17/SB/ToDo.md"])
+    # Tu función existente para abrir el archivo
+    subprocess.Popen(["alacritty", "-e", "nvim", "/home/markoso/life/todo.txt"])
 
 
 def ToDo():
-    pending_tasks = count_pending_tasks()
-    text = f"ToDo: {pending_tasks}"
     return [
         open_sep(color5),
-        widget.TextBox(
+        widget.GenPollText(
             **base(fg=11),
-            text = text,
+            func = count_pending_tasks,
+            update_interval = 3600,
+            fmt = "ToDo: {}",
             mouse_callbacks = { 'Button1': open_todo_in_terminal }
         ),
         close_sep(color5)
@@ -214,7 +215,7 @@ screens = [
             sep(),
             *workspaces(),
             sep(),
-           #*ToDo(),
+            *ToDo(),
             *current_lay(),
             *volume(),
             *battery(),

@@ -1,7 +1,7 @@
 from libqtile.config import EzKey as Key
 from libqtile.lazy import lazy
 
-from modules.prefs import terminal, browser, rofi, lockscreen, redshift_on,redshift_off, screenshot, screenshot_manual, volume_up, volume_down, volume_mute, light_up, light_down, todo
+from modules.prefs import terminal, browser, rofi, lockscreen, redshift_on,redshift_off, screenshot, screenshot_manual, volume_up, volume_down, volume_mute, light_up, light_down, life
 #from prefs import *
 
 
@@ -43,7 +43,7 @@ keys = [
     # Launch Applications
     Key('M-<Space>',                lazy.spawn(rofi),                       desc='Launch Menu'),
     Key('M-<Return>',               lazy.spawn(terminal),                   desc='Launch Terminal'),
-    Key('M-t',                      lazy.spawn(todo),                       desc='Launch File Manager'),
+    Key('M-t',                      lazy.spawn(life),                       desc='Launch life.txt'),
     Key('M-b',                      lazy.spawn(browser),                    desc='Launch Browser'),
     Key('M-g',                      lazy.spawn(lockscreen),                 desc='Launch Lockscreen'),
     Key('M-r',                      lazy.spawn(redshift_on),                desc='Launch Redshift'),
