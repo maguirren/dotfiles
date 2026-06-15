@@ -4,7 +4,7 @@
 vga=`xrandr | grep ' connected' | grep 'VGA' | awk '{print $1}'`
 
 if [ "$vga" = "VGA1" ]; then
-  xrandr --output eDP1 --primary --mode 1920x1080 --pos 0x1080 --output VGA1 --mode 1920x1080 --pos 0x0 &
+  xrandr --output eDP1 --primary --mode 1920x1080 --pos 1440x0 --output VGA1 --mode 1440x900 --pos 0x0 &
 else
   xrandr --output eDP1 --primary --mode 1920x1080 --pos 0x0 --rotate normal --output VGA1 --off &
 fi
@@ -12,6 +12,6 @@ fi
 
 #picom &
 udiskie -t &
-xwallpaper --zoom ~/Media/IMGs/mywall.jpg 
+xwallpaper --zoom ~/Media/IMGs/wallpaper.jpg
 xss-lock -- betterlockscreen -l &
 

@@ -27,6 +27,7 @@ HITSIZE=5000
 HISTFILESIZE=10000
 
 #ENVIRONMENT VARIABLES
+export MANPAGER='nvim +Man!'
 export EDITOR=nvim
 export VISUAL=$EDITOR
 export PAGER=less
@@ -44,16 +45,18 @@ alias ol='/usr/bin/ls'
 alias diff='diff --color'
 alias ..='cd ..'
 alias ...='cd ../..'
+alias cdb='cd -'
 alias mkdir='mkdir -pv'
 alias nv='nvim'
 alias nivm='nvim'
 alias ns='nsxiv'
 alias nst='nsxiv --thumbnail'
-alias cat='batcat --style=plain'
+alias cat='batcat'
 alias py='python3'
 alias pyvenv='python3 -m venv venv'
 alias avenv='. venv/bin/activate'
 alias enie='printf ñ | xclip -selection clipboard -i && echo "enie copiada al portapapeles"'
+alias wall='xwallpaper --zoom'
 
 #FUNCTIONS
 book(){
@@ -65,20 +68,24 @@ mkcd() {
 }
 
 extract() {
+    run() {
+        echo "Ejecutando: $*"
+        "$@"
+    }
     if [ -f "$1" ]; then
         case "$1" in
-            *.tar.bz2)   tar xjf "$1" ;;
-            *.tar.gz)    tar xzf "$1" ;;
-            *.bz2)       bunzip2 "$1" ;;
-            *.rar)       unrar x "$1" ;;
-            *.gz)        gunzip "$1" ;;
-            *.tar)       tar xf "$1" ;;
-            *.tbz2)      tar xjf "$1" ;;
-            *.tgz)       tar xzf "$1" ;;
-            *.zip)       unzip "$1" ;;
-            *.Z)         uncompress "$1" ;;
-            *.7z)        7z x "$1" ;;
-            *)           echo "'$1' no se puede extraer con extract()" ;;
+            *.tar.bz2)  run tar xjf "$1" ;;
+            *.tar.gz)   run tar xzf "$1" ;;
+            *.bz2)      run bunzip2 "$1" ;;
+            *.rar)      run unrar x "$1" ;;
+            *.gz)       run gunzip "$1" ;;
+            *.tar)      run tar xf "$1" ;;
+            *.tbz2)     run tar xjf "$1" ;;
+            *.tgz)      run tar xzf "$1" ;;
+            *.zip)      run unzip "$1" ;;
+            *.Z)        run uncompress "$1" ;;
+            *.7z)       run 7z x "$1" ;;
+            *)          echo "'$1' no se puede extraer con extract()" ;;
         esac
     else
         echo "'$1' no es un archivo válido"
@@ -86,7 +93,6 @@ extract() {
 }
 
 #PROMPT
-#PROMPT_COMMAND='PS1_CMD1=$(__git_ps1 " (%s)")'; PS1='\[\e[1m\][\[\e[0m\]\u@\h\[\e[1m\]]\[\e[0m\]-\[\e[1m\][\[\e[0m\]\w${PS1_CMD1}\[\e[1m\]]\n\[\e[0m\]󰘧 '
 PROMPT_COMMAND='PS1_CMD1=$(__git_ps1 " (%s)")'; PS1='┌\[\e[1m\][\[\e[0m\]\u@\h\[\e[1m\]]\[\e[0m\]-\[\e[1m\][\[\e[0m\]\w${PS1_CMD1}\[\e[1m\]]\n\[\e[0m\]└󰘧 '
 
 #COMPLETION

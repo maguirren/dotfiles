@@ -1,7 +1,7 @@
 # Base16 Grayscale Dark
 # Author: Alexandre Gavioli (https://github.com/Alexx2/)
 
-set font                        "Hack Nerd Font 8"
+set font                        "Hack Nerd Font 10"
 set default-bg                  "#101010"
 set default-fg                  "#252525"
 
@@ -32,5 +32,6 @@ set completion-highlight-bg     "#686868"
 set recolor-lightcolor          "#101010"
 set recolor-darkcolor           "#e3e3e3"
 
-set recolor                     "true"
+#set recolor                     "true"
 set recolor-keephue             "false"
+set selection-clipboard clipboard

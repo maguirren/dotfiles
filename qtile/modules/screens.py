@@ -215,7 +215,6 @@ screens = [
             sep(),
             *workspaces(),
             sep(),
-            *ToDo(),
             *current_lay(),
             *volume(),
             *battery(),
@@ -228,11 +227,12 @@ screens = [
         top=bar.Bar(
         [
             *icon(), 
+            *current_lay(),
             sep(),
             *workspaces(),
             sep(),
-            *test(),
-            *current_lay(),
+            *volume(),
+            *timedate()
         ],
         25,
         margin = [5, 6, 0, 6]

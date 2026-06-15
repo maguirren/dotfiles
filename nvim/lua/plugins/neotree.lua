@@ -16,7 +16,7 @@ return{
             }
           window = {
             position = "left",
-            width = 40,
+            width = 10,
             mappings = {
               ["<2-LeftMouse>"] = "open",
               ["<c-n>"] = "open",

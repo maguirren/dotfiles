@@ -22,5 +22,35 @@
             "($2) ${CURRENT_YEAR}-${CURRENT_MONTH}-${CURRENT_DATE} $1"
         ],
         "description": "Crea una nueva linea al TODO"
+    },
+    "Note Taking": {
+        "prefix": "NOTE",
+        "body": [
+            "---",
+            "title: $1",
+            "date: ${CURRENT_YEAR}-${CURRENT_MONTH}-${CURRENT_DATE}",
+            "tags: [$2]",
+            "---",
+            "# $1",
+            "",
+            "## Cues",
+            "",
+            "$0",
+            "",
+            "## Notes",
+            "",
+            "",
+            "## Summary",
+            "",
+            "",
+            "## References"
+        ]
+    },
+    "example": {
+        "prefix": "E",
+        "body": [
+            "E.g.:",
+            "   - $0"
+        ]
     }
 }

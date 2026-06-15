@@ -12,6 +12,10 @@ keys = [
     Key('M-j',                      lazy.layout.down(),                     desc='Move focus to down'),    
     Key('M-k',                      lazy.layout.up(),                       desc='Move focus to up'),    
 
+    # Switch between windows
+    Key('M-0',                      lazy.next_screen(),                     desc='Move focus to right monitor'),    
+    #Key('M-9',                      lazy.prev_screen(),                    desc='Move focus to left monitor'),    
+
     # Move windows between left/right columns or move up/down in current stack
     Key('M-S-h',                    lazy.layout.shuffle_left(),             desc='Move window to left'),
     Key('M-S-l',                    lazy.layout.shuffle_right(),            desc='Move window to right'),
